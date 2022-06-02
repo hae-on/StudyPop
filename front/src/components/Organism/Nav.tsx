@@ -5,15 +5,15 @@ import { NavLink } from 'react-router-dom';
 const Nav = () => (
   <>
     <Header>
-      <NavLink to="/">
+      <NavLink to="/" style={{ textDecoration: 'none' }}>
         <Title>STUDY POP</Title>
       </NavLink>
       <Menu>
         <ul>
-          <NavLink to="/learning">
+          <NavLink to="/learning" style={{ textDecoration: 'none' }}>
             <MenuItem>Learning</MenuItem>
           </NavLink>
-          <NavLink to="/testing">
+          <NavLink to="/testing" style={{ textDecoration: 'none' }}>
             <MenuItem>Testing</MenuItem>
           </NavLink>
         </ul>
@@ -25,7 +25,7 @@ const Nav = () => (
 export default Nav;
 
 const Header = styled.div`
-  position: fixed;
+  /* position: fixed; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,6 +42,8 @@ const Title = styled.p`
   font-weight: 700;
   font-size: 2rem;
   color: white;
+  margin-left: 10%;
+  white-space: nowrap;
 `;
 
 const Menu = styled.div`

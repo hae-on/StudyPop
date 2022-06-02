@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Info = () => {
-  <p>Learning</p>;
-};
+const Info = () => <p>Info</p>;
 
 export default Info;
