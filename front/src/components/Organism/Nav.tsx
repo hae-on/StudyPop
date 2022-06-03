@@ -1,26 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Location, useLocation } from 'react-router';
 
-const Nav = () => (
-  <>
-    <Header>
-      <NavLink to="/" style={{ textDecoration: 'none' }}>
-        <Title>STUDY POP</Title>
-      </NavLink>
-      <Menu>
-        <ul>
-          <NavLink to="/learning" style={{ textDecoration: 'none' }}>
-            <MenuItem>Learning</MenuItem>
-          </NavLink>
-          <NavLink to="/testing" style={{ textDecoration: 'none' }}>
-            <MenuItem>Testing</MenuItem>
-          </NavLink>
-        </ul>
-      </Menu>
-    </Header>
-  </>
-);
+const Nav = () => {
+  const location = useLocation();
+
+  // eslint-disable-next-line consistent-return
+  const activeTab = (location: Location, path: string) => {
+    if (location.pathname === path) {
+      return {
+        textDecoration: 'underline',
+        textUnderlinePosition: 'under',
+        color: 'white',
+      };
+    }
+  };
+
+  return (
+    <>
+      <Header>
+        <StyledLink to="/">
+          <Title>STUDY POP</Title>
+        </StyledLink>
+        <Menu>
+          <ul>
+            <StyledLink to="/learning" style={activeTab(location, '/learning')}>
+              <MenuItem>Learning</MenuItem>
+            </StyledLink>
+            <StyledLink to="/testing" style={activeTab(location, '/testing')}>
+              <MenuItem>Testing</MenuItem>
+            </StyledLink>
+          </ul>
+        </Menu>
+      </Header>
+    </>
+  );
+};
 
 export default Nav;
 
@@ -62,4 +78,8 @@ const MenuItem = styled.li`
   font-weight: 600;
   font-size: 1.7rem;
   color: white;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
 `;
