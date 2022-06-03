@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Organism/Nav';
-import Info from './components/Page/Info';
-import Learning from './components/Page/Learning';
-import Testing from './components/Page/Testing';
+import Info from './components/Page/info';
+import Learning from './components/Page/learning';
+import Testing from './components/Page/testing';
 
 const App: React.FC = () => (
   <>
