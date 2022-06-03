@@ -1,5 +1,10 @@
 import React from 'react';
+import AddButtonBox from '../Molecule/addButtonBox';
 
-const Testing = () => <p>Testing</p>;
+const Testing = () => (
+  <>
+    <AddButtonBox />
+  </>
+);
 
 export default Testing;

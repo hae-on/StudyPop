@@ -1,5 +1,10 @@
 import React from 'react';
+import AddButtonBox from '../Molecule/addButtonBox';
 
-const Info = () => <p>Info</p>;
+const Info = () => (
+  <>
+    <AddButtonBox />
+  </>
+);
 
 export default Info;

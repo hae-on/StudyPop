@@ -1,6 +1,21 @@
 import React from 'react';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-const button = () => <p>hi</p>;
+interface btnType {
+  name: string;
+}
 
-export default button;
+const Button: React.FC<btnType> = ({ name }) => <Btn>{name}</Btn>;
+
+export default Button;
+
+const Btn = styled.button`
+  cursor: pointer;
+  width: 100px;
+  height: 50px;
+  background-color: #58eaac;
+  color: white;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  margin-right: 10%;
+`;
