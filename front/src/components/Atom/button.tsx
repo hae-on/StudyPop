@@ -16,6 +16,7 @@ const Btn = styled.button`
   background-color: #58eaac;
   color: white;
   font-size: 1.1rem;
+  font-weight: 600;
   border-radius: 5px;
   margin-right: 10%;
 `;
