@@ -12,7 +12,7 @@ const AddButtonBox: React.FC = () => (
 export default AddButtonBox;
 
 const BtnBox = styled.div`
-  width: 250px;
+  width: 300px;
   height: 50px;
-  margin: 3% 3%;
+  margin: 2% 5%;
 `;
