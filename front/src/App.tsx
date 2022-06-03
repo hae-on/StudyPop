@@ -6,17 +6,15 @@ import Info from './components/Page/Info';
 import Learning from './components/Page/Learning';
 import Testing from './components/Page/Testing';
 
-function App() {
-  return (
-    <>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Info />} />
-        <Route path="/learning" element={<Learning />} />
-        <Route path="/testing" element={<Testing />} />
-      </Routes>
-    </>
-  );
-}
+const App: React.FC = () => (
+  <>
+    <Nav />
+    <Routes>
+      <Route path="/" element={<Info />} />
+      <Route path="/learning" element={<Learning />} />
+      <Route path="/testing" element={<Testing />} />
+    </Routes>
+  </>
+);
 
 export default App;
