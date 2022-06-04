@@ -1,12 +1,30 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
+import dummy from '../../db/data.json';
 
-// interface subjectType {
-//   subject: string;
-// }
+const SubjectList = () => {
+  console.log(dummy);
 
-const SubjectList = () => <NoSubject>과목을 생성해주세요</NoSubject>;
-// :React.FC<subjectType>
+  let isEmpty = true;
+  if (dummy.subjects.length > 0) {
+    isEmpty = false;
+  }
+
+  return (
+    <ul>
+      {isEmpty ? (
+        <NoSubject>과목을 생성해주세요</NoSubject>
+      ) : (
+        dummy.subjects.map((subject) => (
+          <SubjectItem key={subject.id}>
+            <li key={subject.id}>{subject.subject}</li>
+          </SubjectItem>
+        ))
+      )}
+    </ul>
+  );
+};
 
 export default SubjectList;
 
@@ -18,4 +36,10 @@ const NoSubject = styled.div`
   font-weight: 700;
   text-align: center;
   white-space: nowrap;
+`;
+
+const SubjectItem = styled.div`
+  color: #58eaac;
+  font-size: 1.1rem;
+  font-weight: 600;
 `;
