@@ -17,9 +17,12 @@ const SubjectList = () => {
         <NoSubject>과목을 생성해주세요</NoSubject>
       ) : (
         dummy.subjects.map((subject) => (
-          <SubjectItem key={subject.id}>
-            <li key={subject.id}>{subject.subject}</li>
-          </SubjectItem>
+          // <SubjectItem key={subject.id}>
+          //   <li key={subject.id}>{subject.subject}</li>
+          // </SubjectItem>
+          <li key={subject.id}>
+            <SubjectItem key={subject.id}>{subject.subject}</SubjectItem>
+          </li>
         ))
       )}
     </ul>
