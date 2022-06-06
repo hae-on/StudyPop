@@ -30,13 +30,13 @@ export default Subject;
 
 const SubjectItem = styled.div`
   color: #58eaac;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
 `;
 
 const SubjectDiv = styled.div`
   width: 100%;
   margin-left: 5%;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
   color: #58eaac;
 `;

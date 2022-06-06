@@ -18,7 +18,7 @@ const SubjectList: React.FC = () => (
 
 export default SubjectList;
 
-const SubjectDiv = styled.div`
+const SubjectDiv = styled.ul`
   width: 100%;
 `;
 

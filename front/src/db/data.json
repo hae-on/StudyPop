@@ -1,5 +1,28 @@
 {
-  "subjects": [],
+  "subjects": [
+    {
+      "id": 1,
+      "subject": "정보처리기사",
+      "subSubjects": [
+        {
+          "title": "SQL 응용"
+        },
+        {
+          "title": "서버 프로그램 구현"
+        },
+        {
+          "title": "소프트웨어 개발 보안 구축"
+        }
+      ]
+    },
+
+    {
+      "id": 2,
+      "subject": "SQLD",
+      "subSubjects": [{ "title": "SQLD 하위메뉴" }]
+    },
+    { "id": 3, "subject": "AWS", "subSubjects": [{ "title": "AWS 하위메뉴" }] }
+  ],
 
   "question": [
     {

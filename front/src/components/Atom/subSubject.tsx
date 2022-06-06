@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 interface subSubjectType {
   subSubjects?: {
@@ -10,7 +11,7 @@ const SubSubject: React.FC<subSubjectType> = ({ subSubjects }) => (
   <>
     {subSubjects ? (
       subSubjects.map((subSubject, index) => (
-        <li key={index}>{subSubject.title}</li>
+        <SubsubjectItem key={index}>{subSubject.title}</SubsubjectItem>
       ))
     ) : (
       <p> </p>
@@ -19,3 +20,9 @@ const SubSubject: React.FC<subSubjectType> = ({ subSubjects }) => (
 );
 
 export default SubSubject;
+
+const SubsubjectItem = styled.li`
+  margin-top: 3%;
+  margin-left: 15px;
+  font-weight: 600;
+`;
