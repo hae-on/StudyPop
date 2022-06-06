@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-multilevel-dropdown": "^3.0.3",
     "react-native-storybook-loader": "^2.0.5",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
