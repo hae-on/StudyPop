@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import SubSubject from './subSubject';
 
@@ -12,23 +12,32 @@ interface subjectType {
   };
 }
 
-const Subject: React.FC<subjectType> = ({ subject }) => (
-  <SubjectDiv>
-    {subject ? (
-      <>
-        <SubjectItem>
-          <li>{subject.subject}</li>
-        </SubjectItem>
-        <SubSubject subSubjects={subject.subSubjects} />
-      </>
-    ) : (
-      <p> </p>
-    )}
-  </SubjectDiv>
-);
+const Subject: React.FC<subjectType> = ({ subject }) => {
+  const [dropdown, setDropdown] = useState(false);
+
+  return (
+    <SubjectDiv>
+      {subject ? (
+        <>
+          <SubjectItem
+            aria-expanded={dropdown ? 'true' : 'false'}
+            onClick={() => setDropdown((prev) => !prev)}
+          >
+            {subject.subject}
+          </SubjectItem>
+          <SubSubject subSubjects={subject.subSubjects} dropdown={dropdown} />
+        </>
+      ) : (
+        <p> </p>
+      )}
+    </SubjectDiv>
+  );
+};
 export default Subject;
 
-const SubjectItem = styled.div`
+const SubjectItem = styled.button`
+  cursor: pointer;
+  background-color: transparent;
   color: #58eaac;
   font-size: 1.2rem;
   font-weight: 700;

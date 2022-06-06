@@ -7,22 +7,36 @@ interface subSubjectType {
   }[];
 }
 
-const SubSubject: React.FC<subSubjectType> = ({ subSubjects }) => (
-  <>
-    {subSubjects ? (
-      subSubjects.map((subSubject, index) => (
-        <SubsubjectItem key={index}>{subSubject.title}</SubsubjectItem>
-      ))
-    ) : (
-      <p> </p>
-    )}
-  </>
-);
+interface dropDownType {
+  dropdown: boolean;
+}
+
+type Props = subSubjectType | dropDownType;
+
+const SubSubject: React.FC<Props> = (props) => {
+  const { subSubjects } = props as subSubjectType;
+  const { dropdown } = props as dropDownType;
+
+  return (
+    <>
+      {subSubjects ? (
+        subSubjects.map((subSubject, index) => (
+          <SubsubjectItem key={index} dropdown={dropdown}>
+            {subSubject.title}
+          </SubsubjectItem>
+        ))
+      ) : (
+        <p> </p>
+      )}
+    </>
+  );
+};
 
 export default SubSubject;
 
-const SubsubjectItem = styled.li`
+const SubsubjectItem = styled.li<dropDownType>`
   margin-top: 3%;
   margin-left: 15px;
   font-weight: 600;
+  display: ${(props) => (props.dropdown ? 'block' : 'none')};
 `;
