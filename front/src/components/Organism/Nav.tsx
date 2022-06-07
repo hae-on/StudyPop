@@ -41,7 +41,7 @@ const Nav = () => {
 export default Nav;
 
 const Header = styled.div`
-  /* position: fixed; */
+  position: fixed;
   display: flex;
   flex-direction: row;
   align-items: center;

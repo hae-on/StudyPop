@@ -18,5 +18,4 @@ const Btn = styled.button`
   font-size: 1.1rem;
   font-weight: 600;
   border-radius: 5px;
-  margin-right: 15%;
 `;

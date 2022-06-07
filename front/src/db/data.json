@@ -24,7 +24,7 @@
     { "id": 3, "subject": "AWS", "subSubjects": [{ "title": "AWS 하위메뉴" }] }
   ],
 
-  "question": [
+  "questions": [
     {
       "id": 1,
       "subject": "정보처리기사",

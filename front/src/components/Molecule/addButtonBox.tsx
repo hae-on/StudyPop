@@ -12,7 +12,9 @@ const AddButtonBox: React.FC = () => (
 export default AddButtonBox;
 
 const BtnBox = styled.div`
+  display: flex;
+  justify-content: space-around;
   width: 300px;
   height: 50px;
-  margin: 2% 5%;
+  margin-bottom: 5%;
 `;
