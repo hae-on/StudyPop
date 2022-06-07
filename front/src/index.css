@@ -26,3 +26,17 @@ li {
 button {
   border: none;
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 80%;
+  border: 0.5px solid #d3d1d1;
+}
+
+th,
+td {
+  border: 0.5px solid #d3d1d1;
+  padding: 1.2em 1em;
+  white-space: nowrap;
+}
