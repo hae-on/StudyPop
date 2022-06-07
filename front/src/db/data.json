@@ -12,6 +12,9 @@
         },
         {
           "title": "소프트웨어 개발 보안 구축"
+        },
+        {
+          "title": "데이터베이스 기본"
         }
       ]
     },
@@ -28,6 +31,7 @@
     {
       "id": 1,
       "subject": "정보처리기사",
+      "subSubjects": "데이터베이스 기본",
       "word": "원자성",
       "meaning": "원자성에 대한 설명입니다.",
       "isDone": false
@@ -35,6 +39,7 @@
     {
       "id": 2,
       "subject": "정보처리기사",
+      "subSubjects": "데이터베이스 기본",
       "word": "일관성",
       "meaning": "일관성에 대한 설명입니다.",
       "isDone": false
@@ -42,6 +47,7 @@
     {
       "id": 3,
       "subject": "SQLD",
+      "subSubjects": "SQLD 하위메뉴",
       "word": "가방",
       "meaning": "가방에 대한 설명입니다.",
       "isDone": false
@@ -49,6 +55,7 @@
     {
       "id": 4,
       "subject": "SQLD",
+      "subSubjects": "SQLD 하위메뉴",
       "word": "신발",
       "meaning": "신발에 대한 설명입니다.",
       "isDone": false
@@ -56,6 +63,7 @@
     {
       "id": 5,
       "subject": "AWS",
+      "subSubjects": "AWS 하위메뉴",
       "word": "사탕",
       "meaning": "사탕에 대한 설명입니다.",
       "isDone": false
