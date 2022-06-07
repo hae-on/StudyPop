@@ -20,6 +20,7 @@ export default SubjectList;
 
 const SubjectDiv = styled.ul`
   width: 100%;
+  padding-top: 8%;
 `;
 
 const NoSubject = styled.div`
