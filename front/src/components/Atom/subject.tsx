@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { TiArrowSortedDown } from 'react-icons/ti';
+import { MdPlayArrow } from 'react-icons/md';
 import SubSubject from './subSubject';
 
 interface subjectType {
@@ -23,6 +25,7 @@ const Subject: React.FC<subjectType> = ({ subject }) => {
             aria-expanded={dropdown ? 'true' : 'false'}
             onClick={() => setDropdown((prev) => !prev)}
           >
+            {dropdown ? <TiArrowSortedDown /> : <MdPlayArrow />}
             {subject.subject}
           </SubjectItem>
           <SubSubject subSubjects={subject.subSubjects} dropdown={dropdown} />
