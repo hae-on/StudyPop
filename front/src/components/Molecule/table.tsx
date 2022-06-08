@@ -1,23 +1,27 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import dummy from '../../db/data.json';
 
 const Table = () => {
-  const subSubject = '데이터베이스 기본';
+  const { subSubject } = useParams();
   const questionList = dummy.questions.filter(
     (question) => question.subSubject === subSubject,
   );
 
   return (
-    <table>
-      <tbody>
-        {questionList.map((question) => (
-          <tr key={question.id}>
-            <td>{question.word}</td>
-            <td>{question.meaning}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      <h2> {subSubject}</h2>
+      <table>
+        <tbody>
+          {questionList.map((question) => (
+            <tr key={question.id}>
+              <td>{question.word}</td>
+              <td>{question.meaning}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 

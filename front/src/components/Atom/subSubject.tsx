@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface subSubjectType {
@@ -22,7 +23,7 @@ const SubSubject: React.FC<Props> = (props) => {
       {subSubjects ? (
         subSubjects.map((subSubject, index) => (
           <SubsubjectItem key={index} dropdown={dropdown}>
-            {subSubject.title}
+            <Link to={`${subSubject.title}`}>{subSubject.title}</Link>
           </SubsubjectItem>
         ))
       ) : (

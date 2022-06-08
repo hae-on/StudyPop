@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Route, Routes } from 'react-router-dom';
 import Menu from '../Organism/menu';
 import Table from '../Molecule/table';
 
@@ -9,7 +10,9 @@ const Learning = () => (
       <Menu />
     </MenuPart>
     <MainPart>
-      <Table />
+      <Routes>
+        <Route path="/:subSubject" element={<Table />} />
+      </Routes>
     </MainPart>
   </Container>
 );

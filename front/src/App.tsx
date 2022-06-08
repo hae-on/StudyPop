@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
+// import Table from './components/Molecule/table';
 import Nav from './components/Organism/Nav';
 import Info from './components/Page/info';
 import Learning from './components/Page/learning';
@@ -13,7 +14,7 @@ const App: React.FC = () => (
     <HomeSection>
       <Routes>
         <Route path="/" element={<Info />} />
-        <Route path="/learning" element={<Learning />} />
+        <Route path="/learning/*" element={<Learning />} />
         <Route path="/testing" element={<Testing />} />
       </Routes>
     </HomeSection>

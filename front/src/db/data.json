@@ -18,13 +18,16 @@
         }
       ]
     },
-
     {
       "id": 2,
       "subject": "SQLD",
       "subSubjects": [{ "title": "SQLD 하위메뉴" }]
     },
-    { "id": 3, "subject": "AWS", "subSubjects": [{ "title": "AWS 하위메뉴" }] }
+    {
+      "id": 3,
+      "subject": "AWS",
+      "subSubjects": [{ "title": "AWS 하위메뉴" }]
+    }
   ],
 
   "questions": [
