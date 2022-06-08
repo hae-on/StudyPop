@@ -23,7 +23,9 @@ const SubSubject: React.FC<Props> = (props) => {
       {subSubjects ? (
         subSubjects.map((subSubject, index) => (
           <SubsubjectItem key={index} dropdown={dropdown}>
-            <Link to={`${subSubject.title}`}>{subSubject.title}</Link>
+            <StyledLink to={`${subSubject.title}`}>
+              {subSubject.title}
+            </StyledLink>
           </SubsubjectItem>
         ))
       ) : (
@@ -40,4 +42,10 @@ const SubsubjectItem = styled.li<dropDownType>`
   margin-left: 15px;
   font-weight: 600;
   display: ${(props) => (props.dropdown ? 'block' : 'none')};
+`;
+
+const StyledLink = styled(Link)`
+  color: #58eaac;
+  text-decoration: none;
+  margin-left: 5%;
 `;

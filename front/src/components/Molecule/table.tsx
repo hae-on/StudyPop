@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import dummy from '../../db/data.json';
 
 const Table = () => {
@@ -10,7 +11,7 @@ const Table = () => {
 
   return (
     <>
-      <h2> {subSubject}</h2>
+      <Title> {subSubject}</Title>
       <table>
         <tbody>
           {questionList.map((question) => (
@@ -26,3 +27,7 @@ const Table = () => {
 };
 
 export default Table;
+
+const Title = styled.h2`
+  color: #58eaac;
+`;

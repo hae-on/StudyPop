@@ -48,7 +48,7 @@ const SubjectItem = styled.button`
 
 const SubjectDiv = styled.div`
   width: 100%;
-  margin-left: 5%;
+  margin-left: 2%;
   margin-bottom: 8%;
   color: #58eaac;
 `;
