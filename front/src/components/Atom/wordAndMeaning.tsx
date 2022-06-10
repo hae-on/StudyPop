@@ -15,8 +15,9 @@ interface questionType {
 }
 
 const Word: React.FC<questionType> = ({ question }) => {
-  const [isWordShow, setIsWordShow] = useState(false);
-  const [isMeanShow, setIsMeanShow] = useState(false);
+  const [isWordShow, setIsWordShow] = useState(true);
+  const [isMeanShow, setIsMeanShow] = useState(true);
+  const [isDone, setIsDone] = useState(question.isDone);
 
   function toggleWord() {
     setIsWordShow(!isWordShow);
@@ -26,13 +27,21 @@ const Word: React.FC<questionType> = ({ question }) => {
     setIsMeanShow(!isMeanShow);
   }
 
+  function toggleDone() {
+    setIsDone(!isDone);
+  }
+
   return (
     <tr>
-      <CheckBox>
-        <input type="checkbox" />
+      <CheckBox className={isDone ? 'off' : ''}>
+        <input type="checkbox" checked={isDone} onChange={toggleDone} />
       </CheckBox>
-      <td>{isWordShow && question.word}</td>
-      <td>{isMeanShow && question.meaning}</td>
+      <TableTd className={isDone ? 'off' : ''}>
+        {isWordShow && question.word}
+      </TableTd>
+      <TableTd className={isDone ? 'off' : ''}>
+        {isMeanShow && question.meaning}
+      </TableTd>
       <BtnContainer>
         <TableBtn onClick={toggleWord}>
           {isWordShow ? <AiOutlineEye /> : <AiFillEye />}
@@ -50,6 +59,22 @@ const Word: React.FC<questionType> = ({ question }) => {
 
 export default Word;
 
+const CheckBox = styled.td`
+  padding: 0.3em;
+  text-align: center;
+  &.off {
+    background: #eee;
+    color: #321a1a;
+  }
+`;
+
+const TableTd = styled.td`
+  &.off {
+    background: #eee;
+    color: #321a1a;
+  }
+`;
+
 const BtnContainer = styled.div`
   display: flex;
   margin-top: 10px;
@@ -60,9 +85,4 @@ const TableBtn = styled.button`
   background-color: transparent;
   color: #58eaac;
   font-size: 1.5rem;
-`;
-
-const CheckBox = styled.td`
-  padding: 0.3em;
-  text-align: center;
 `;
