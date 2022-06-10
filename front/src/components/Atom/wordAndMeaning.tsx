@@ -14,7 +14,8 @@ interface questionType {
   };
 }
 
-const Word: React.FC<questionType> = ({ question }) => {
+const WordAndMeaning: React.FC<questionType> = ({ question: q }) => {
+  const [question, setQuestion] = useState(q);
   const [isWordShow, setIsWordShow] = useState(true);
   const [isMeanShow, setIsMeanShow] = useState(true);
   const [isDone, setIsDone] = useState(question.isDone);
@@ -44,6 +45,26 @@ const Word: React.FC<questionType> = ({ question }) => {
     });
   }
 
+  function del() {
+    // eslint-disable-next-line no-alert
+    if (window.confirm('정말 삭제하시나요?')) {
+      fetch(`http://localhost:3001/questions/${question.id}`, {
+        method: 'DELETE',
+      }).then((res) => {
+        if (res.ok) {
+          setQuestion({
+            ...question,
+            id: 0,
+          });
+        }
+      });
+    }
+  }
+
+  if (question.id === 0) {
+    return null;
+  }
+
   return (
     <tr>
       <CheckBox className={isDone ? 'off' : ''}>
@@ -62,7 +83,7 @@ const Word: React.FC<questionType> = ({ question }) => {
         <TableBtn onClick={toggleMeaning}>
           {isMeanShow ? <AiOutlineEye /> : <AiFillEye />}
         </TableBtn>
-        <TableBtn>
+        <TableBtn onClick={del}>
           <FaTrashAlt />
         </TableBtn>
       </BtnContainer>
@@ -70,7 +91,7 @@ const Word: React.FC<questionType> = ({ question }) => {
   );
 };
 
-export default Word;
+export default WordAndMeaning;
 
 const CheckBox = styled.td`
   padding: 0.3em;

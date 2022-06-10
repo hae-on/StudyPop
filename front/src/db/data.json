@@ -47,27 +47,11 @@
       "isDone": true
     },
     {
-      "id": 2,
-      "subject": "정보처리기사",
-      "subSubject": "데이터베이스 기본",
-      "word": "일관성",
-      "meaning": "일관성에 대한 설명입니다.",
-      "isDone": true
-    },
-    {
       "id": 3,
       "subject": "SQLD",
       "subSubject": "SQLD 하위메뉴",
       "word": "가방",
       "meaning": "가방에 대한 설명입니다.",
-      "isDone": false
-    },
-    {
-      "id": 4,
-      "subject": "SQLD",
-      "subSubject": "SQLD 하위메뉴",
-      "word": "신발",
-      "meaning": "신발에 대한 설명입니다.",
       "isDone": false
     },
     {

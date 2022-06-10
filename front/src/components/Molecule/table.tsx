@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import Word from '../Atom/wordAndMeaning';
+import WordAndMeaning from '../Atom/wordAndMeaning';
 
 const Table = () => {
   const { subSubject } = useParams();
@@ -21,7 +21,7 @@ const Table = () => {
       <table>
         <tbody>
           {questions.map((question) => (
-            <Word question={question} key={question.id} />
+            <WordAndMeaning question={question} key={question.id} />
           ))}
         </tbody>
       </table>
