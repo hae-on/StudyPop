@@ -1,21 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import dummy from '../../db/data.json';
 import Word from '../Atom/wordAndMeaning';
 
 const Table = () => {
   const { subSubject } = useParams();
-  const questionList = dummy.questions.filter(
-    (question) => question.subSubject === subSubject,
-  );
+  const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3001/questions?subSubject=${subSubject}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setQuestions(data);
+      });
+  }, [subSubject]);
 
   return (
     <>
       <Title> {subSubject}</Title>
       <table>
         <tbody>
-          {questionList.map((question) => (
+          {questions.map((question) => (
             <Word question={question} key={question.id} />
           ))}
         </tbody>
