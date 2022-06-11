@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../Atom/button';
 
 const AddButtonBox: React.FC = () => (
   <BtnBox>
-    <Button name="문제추가" />
+    <Link to="/create_word">
+      <Button name="문제추가" />
+    </Link>
     <Button name="과목추가" />
   </BtnBox>
 );

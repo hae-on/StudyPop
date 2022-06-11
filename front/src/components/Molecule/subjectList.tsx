@@ -1,18 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
 import Subject from '../Atom/subject';
 
 const SubjectList: React.FC = () => {
-  const [subjects, setSubjects] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3001/subjects')
-      .then((res) => res.json())
-      .then((data) => {
-        setSubjects(data);
-      });
-  }, []);
+  const subjects = useFetch('http://localhost:3001/subjects');
 
   return (
     <SubjectDiv>

@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
 import WordAndMeaning from '../Atom/wordAndMeaning';
 
 const Table = () => {
   const { subSubject } = useParams();
-  const [questions, setQuestions] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:3001/questions?subSubject=${subSubject}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data);
-      });
-  }, [subSubject]);
+  const questions = useFetch(
+    `http://localhost:3001/questions?subSubject=${subSubject}`,
+  );
 
   return (
     <>

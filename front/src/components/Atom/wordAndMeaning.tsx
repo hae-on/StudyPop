@@ -116,6 +116,7 @@ const BtnContainer = styled.div`
 `;
 
 const TableBtn = styled.button`
+  cursor: pointer;
   background-color: transparent;
   color: #58eaac;
   font-size: 1.5rem;
