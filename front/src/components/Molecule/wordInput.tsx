@@ -7,7 +7,7 @@ const WordInput: React.FC = () => (
   <InputPart>
     <Input title="단어" />
     <Input title="의미" />
-    <SelectInput title="과목" content="정보처리기사" />
+    <SelectInput name="과목" />
   </InputPart>
 );
 export default WordInput;
