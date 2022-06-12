@@ -6,9 +6,9 @@ import Button from '../Atom/button';
 const AddButtonBox: React.FC = () => (
   <BtnBox>
     <Link to="/create_word">
-      <Button name="문제추가" />
+      <Button name="문제추가" color="#58eaac" />
     </Link>
-    <Button name="과목추가" />
+    <Button name="과목추가" color="#58eaac" />
   </BtnBox>
 );
 

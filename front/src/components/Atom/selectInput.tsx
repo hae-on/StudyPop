@@ -52,4 +52,8 @@ const SelectBox = styled.select`
   height: 36px;
   font-size: 1.1rem;
   padding-left: 10px;
+
+  :focus {
+    outline: 1px solid #58eaac;
+  }
 `;
