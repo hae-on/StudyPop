@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface InputType {
-  title: string;
+  name: string;
 }
 
-const Input: React.FC<InputType> = ({ title }) => (
+const Input: React.FC<InputType> = ({ name }) => (
   <InputContainer>
-    <InputName>{title} : </InputName>
+    <InputName>{name} : </InputName>
     <InputBox type="text"></InputBox>
   </InputContainer>
 );
