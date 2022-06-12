@@ -4,8 +4,8 @@ import Button from '../Atom/button';
 
 const CreateButtonBox = () => (
   <BtnBox>
-    <Button name="생성" color="#58eaac" />
-    <Button name="취소" color="#C9CFCC" />
+    <Button name="생성" color="#58eaac" hoverColor="#47DB94" />
+    <Button name="취소" color="#C9CFCC" hoverColor="#939E9D" />
   </BtnBox>
 );
 
