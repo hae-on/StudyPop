@@ -5,11 +5,14 @@ interface InputType {
   name: string;
 }
 
-const Input: React.FC<InputType> = ({ name }) => (
-  <InputContainer>
-    <InputName>{name} : </InputName>
-    <InputBox type="text"></InputBox>
-  </InputContainer>
+// eslint-disable-next-line react/display-name
+const Input = React.forwardRef(
+  ({ name }: InputType, ref?: React.Ref<HTMLInputElement>) => (
+    <InputContainer>
+      <InputName>{name} : </InputName>
+      <InputBox type="text" ref={ref}></InputBox>
+    </InputContainer>
+  ),
 );
 
 export default Input;

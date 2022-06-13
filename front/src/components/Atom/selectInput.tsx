@@ -12,31 +12,34 @@ interface subSubjectType {
 
 type Props = selectType | subSubjectType;
 
-const SelectInput: React.FC<Props> = (props) => {
-  const { name } = props as selectType;
+// eslint-disable-next-line react/display-name
+const SelectInput = React.forwardRef(
+  (props: Props, ref?: React.Ref<HTMLSelectElement>) => {
+    const { name } = props as selectType;
 
-  const subjects = useFetch('http://localhost:3001/subjects');
+    const subjects = useFetch('http://localhost:3001/subjects');
 
-  return (
-    <div>
-      <InputName>{name} : </InputName>
-      <SelectBox>
-        {subjects.map(
-          (subject) =>
-            // eslint-disable-next-line implicit-arrow-linebreak
-            subject.subSubjects.map(
-              (subSubject: subSubjectType, index: number) => (
-                <option
-                  key={index}
-                >{`${subject.subject} - ${subSubject.title}`}</option>
+    return (
+      <div>
+        <InputName>{name} : </InputName>
+        <SelectBox ref={ref}>
+          {subjects.map(
+            (subject) =>
+              // eslint-disable-next-line implicit-arrow-linebreak
+              subject.subSubjects.map(
+                (subSubject: subSubjectType, index: number) => (
+                  <option
+                    key={index}
+                  >{`${subject.subject} - ${subSubject.title}`}</option>
+                ),
               ),
-            ),
-          // eslint-disable-next-line function-paren-newline
-        )}
-      </SelectBox>
-    </div>
-  );
-};
+            // eslint-disable-next-line function-paren-newline
+          )}
+        </SelectBox>
+      </div>
+    );
+  },
+);
 
 export default SelectInput;
 
