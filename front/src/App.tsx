@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import './App.css';
 import Nav from './components/Organism/Nav';
+import CreateSubject from './components/Page/createSubject';
 import CreateWord from './components/Page/createWord';
 import Empty from './components/Page/empty';
 import Info from './components/Page/info';
@@ -18,6 +19,7 @@ const App: React.FC = () => (
         <Route path="/learning/*" element={<Learning />} />
         <Route path="/testing" element={<Testing />} />
         <Route path="/create_word" element={<CreateWord />} />
+        <Route path="/create_subject" element={<CreateSubject />} />
         <Route path="*" element={<Empty />} />
       </Routes>
     </HomeSection>

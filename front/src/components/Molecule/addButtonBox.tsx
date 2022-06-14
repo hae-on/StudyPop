@@ -8,7 +8,9 @@ const AddButtonBox: React.FC = () => (
     <Link to="/create_word">
       <Button name="문제추가" color="#58eaac" />
     </Link>
-    <Button name="과목추가" color="#58eaac" />
+    <Link to="/create_subject">
+      <Button name="과목추가" color="#58eaac" />
+    </Link>
   </BtnBox>
 );
 
