@@ -2,7 +2,11 @@ import React, { useState, KeyboardEvent, useEffect } from 'react';
 import styled from 'styled-components';
 import dummy from '../../db/data.json';
 
-const DropdownInput = () => {
+interface InputType {
+  name: string;
+}
+
+const DropdownInput: React.FC<InputType> = ({ name }) => {
   const subject = dummy.subjects.map((subject) => subject.subject);
 
   const [inputValue, setInputValue] = useState('');
@@ -59,37 +63,63 @@ const DropdownInput = () => {
 
   return (
     <>
-      <InputBox>
-        <Input
-          type="text"
-          value={inputValue}
-          onChange={changeInputValue}
-          onKeyUp={handleDropDownKey}
-        ></Input>
-        <DeleteButton onClick={() => setInputValue('')}>&times;</DeleteButton>
-      </InputBox>
-      {isHaveInputValue && (
-        <DropDownBox>
-          {dropDownList.length === 0 && (
-            <DropDownItem>해당하는 단어가 없습니다</DropDownItem>
+      <MajorSubject>
+        <InputName>{name}</InputName>
+        <WholeSubjectInput>
+          <InputBox>
+            <Input
+              type="text"
+              value={inputValue}
+              onChange={changeInputValue}
+              onKeyUp={handleDropDownKey}
+            ></Input>
+            <DeleteButton onClick={() => setInputValue('')}>
+              &times;
+            </DeleteButton>
+          </InputBox>
+          {isHaveInputValue && (
+            <DropDownBox>
+              {dropDownList.length === 0 && (
+                <DropDownItem>해당하는 단어가 없습니다</DropDownItem>
+              )}
+              {dropDownList.map((dropDownItem, dropDownIndex) => (
+                <DropDownItem
+                  key={dropDownIndex}
+                  onClick={() => clickDropDownItem(dropDownItem)}
+                  onMouseOver={() => setDropDownItemIndex(dropDownIndex)}
+                  className={
+                    dropDownItemIndex === dropDownIndex ? 'selected' : ''
+                  }
+                >
+                  {dropDownItem}
+                </DropDownItem>
+              ))}
+            </DropDownBox>
           )}
-          {dropDownList.map((dropDownItem, dropDownIndex) => (
-            <DropDownItem
-              key={dropDownIndex}
-              onClick={() => clickDropDownItem(dropDownItem)}
-              onMouseOver={() => setDropDownItemIndex(dropDownIndex)}
-              className={dropDownItemIndex === dropDownIndex ? 'selected' : ''}
-            >
-              {dropDownItem}
-            </DropDownItem>
-          ))}
-        </DropDownBox>
-      )}
+        </WholeSubjectInput>
+      </MajorSubject>
     </>
   );
 };
 
 export default DropdownInput;
+
+const MajorSubject = styled.div`
+  display: flex;
+`;
+
+const WholeSubjectInput = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputName = styled.label`
+  color: #58eaac;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-right: 1%;
+  margin-top: 5px;
+`;
 
 const InputBox = styled.div`
   display: flex;
@@ -97,7 +127,7 @@ const InputBox = styled.div`
   width: 300px;
   padding: 10px;
   border: 1px solid #4b4b4b;
-  border-radius: 5px;
+  border-radius: 3px;
   z-index: 3;
 `;
 
@@ -121,7 +151,7 @@ const DropDownBox = styled.ul`
   padding: 10px 0;
   background-color: white;
   border: 1px solid #4b4b4b;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 3px 3px;
   border-top: none;
   list-style-type: none;
   z-index: 3;

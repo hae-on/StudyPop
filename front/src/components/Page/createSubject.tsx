@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DropdownInput from '../Atom/dropdownInput';
+import SubjectInput from '../Molecule/subjectInput';
 import Menu from '../Organism/menu';
 
 const CreateSubject = () => (
@@ -10,7 +10,7 @@ const CreateSubject = () => (
     </MenuPart>
     <MainPart>
       <Title>새로운 과목을 추가해보세요</Title>
-      <DropdownInput />
+      <SubjectInput />
     </MainPart>
   </Container>
 );
