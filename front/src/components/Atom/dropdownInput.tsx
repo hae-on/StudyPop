@@ -1,13 +1,14 @@
 import React, { useState, KeyboardEvent, useEffect } from 'react';
 import styled from 'styled-components';
-import dummy from '../../db/data.json';
+import useFetch from '../../hooks/useFetch';
 
 interface InputType {
   name: string;
 }
 
 const DropdownInput: React.FC<InputType> = ({ name }) => {
-  const subject = dummy.subjects.map((subject) => subject.subject);
+  const subjects = useFetch('http://localhost:3001/subjects');
+  const subject = subjects.map((subject) => subject.subject);
 
   const [inputValue, setInputValue] = useState('');
   const [isHaveInputValue, setIsHaveInputValue] = useState(false);
