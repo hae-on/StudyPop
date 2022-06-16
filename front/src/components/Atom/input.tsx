@@ -10,7 +10,11 @@ const Input = React.forwardRef(
   ({ name }: InputType, ref?: React.Ref<HTMLInputElement>) => (
     <InputContainer>
       <InputName>{name} : </InputName>
-      <InputBox type="text" ref={ref}></InputBox>
+      <WholeInput>
+        <InputDiv>
+          <InputBox type="text" ref={ref}></InputBox>
+        </InputDiv>
+      </WholeInput>
     </InputContainer>
   ),
 );
@@ -18,6 +22,7 @@ const Input = React.forwardRef(
 export default Input;
 
 const InputContainer = styled.div`
+  display: flex;
   margin-bottom: 3%;
 `;
 
@@ -26,15 +31,35 @@ const InputName = styled.label`
   font-size: 1.3rem;
   font-weight: 600;
   margin-right: 1%;
+  margin-top: 1%;
+`;
+
+const WholeInput = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const InputDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #4b4b4b;
+  border-radius: 3px;
+  z-index: 3;
+
+  &:focus-within {
+    border: 1px solid #58eaac;
+  }
 `;
 
 const InputBox = styled.input`
-  width: 300px;
-  height: 30px;
+  flex: 1 0 0;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
   font-size: 1.1rem;
-  padding-left: 10px;
-
-  :focus {
-    outline: 1px solid #58eaac;
-  }
+  color: #4b4b4b;
 `;
