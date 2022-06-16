@@ -106,6 +106,8 @@ export default DropdownInput;
 
 const MajorSubject = styled.div`
   display: flex;
+  margin-bottom: 3%;
+  margin-left: -2%;
 `;
 
 const WholeSubjectInput = styled.div`
