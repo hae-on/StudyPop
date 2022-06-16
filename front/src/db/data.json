@@ -35,6 +35,11 @@
           "title": "AWS 하위메뉴"
         }
       ]
+    },
+    {
+      "subject": "정보처리기사",
+      "subSubject": "안녕",
+      "id": 4
     }
   ],
   "questions": [
