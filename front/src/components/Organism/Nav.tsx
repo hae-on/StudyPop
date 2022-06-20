@@ -8,7 +8,7 @@ const Nav = () => {
 
   // eslint-disable-next-line consistent-return
   const activeTab = (location: Location, path: string) => {
-    if (location.pathname === path) {
+    if (location.pathname.startsWith(path)) {
       return {
         textDecoration: 'underline',
         textUnderlinePosition: 'under',
