@@ -1,30 +1,72 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
+import useFetch from '../../hooks/useFetch';
 import DropdownInput from '../Atom/dropdownInput';
 import Input from '../Atom/input';
 import CreateButtonBox from './createButtonBox';
 
-const SubjectInput: React.FC = () => {
+interface subjectType {
+  subject?: {
+    id?: number;
+    subject?: string;
+    subSubjects?: {
+      title?: string;
+    }[];
+  };
+}
+
+const SubjectInput: React.FC<subjectType> = () => {
+  const subjects = useFetch('http://localhost:3001/subjects');
+  const subject = subjects.map((subject) => subject.subject);
+
+  console.log(subject);
+
+  // const [subject, setSubject] = useState(s);
+  // const [title, setTitle] = useState(subject.subject);
+
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     console.log(subjectRef.current.value);
     console.log(subSubjectRef.current.value);
 
-    fetch('http://localhost:3001/subjects/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        subject: subjectRef.current.value,
-        subSubject: subSubjectRef.current.value,
-      }),
-    }).then((res) => {
-      if (res.ok) {
-        alert('생성 완료');
-      }
-    });
+    if (subject.includes(subjectRef.current.value)) {
+      console.log('yes');
+    } else {
+      fetch('http://localhost:3001/subjects/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          subject: subjectRef.current.value,
+          subSubjects: [
+            {
+              title: subSubjectRef.current.value,
+            },
+          ],
+        }),
+      }).then((res) => {
+        if (res.ok) {
+          alert('생성 완료');
+        }
+      });
+    }
+
+    // fetch(`http://localhost:3001/subjects/${subject.id}`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     ...subject,
+
+    //   }),
+    // }).then((res) => {
+    //   if (res.ok) {
+
+    //   }
+    // });
   }
 
   const subjectRef = useRef<HTMLInputElement>(null);
