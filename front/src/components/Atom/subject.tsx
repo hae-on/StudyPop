@@ -7,6 +7,7 @@ import SubSubject from './subSubject';
 interface subjectType {
   subject?: {
     id?: number;
+    test?: boolean;
     subject?: string;
     subSubjects?: {
       title?: string;
